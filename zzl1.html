@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div,ul,li,p,a{
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				text-decoration: none;
+			}
+			.boss{
+				width: 600px;
+				height: 400px;
+				margin: 0 auto;
+				border: 1px #000000 solid;
+			}
+			.header{
+				height: 100px;
+				background-color: blue;
+			}
+			.header ul li{
+				float: left;
+				width: 100px;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+			}
+			.header ul li a{
+				color: #FFFFFF
+			}
+			.bottom{
+				width: 600px;
+				height: 300px;
+				color: #FFFFFF;
+			}
+			.bottom .left{
+				width: 300px;
+				height: 300px;
+				background-color: green;
+				float: left;
+			}
+			.bottom .left a{
+				color: #FFFFFF;
+			}
+			.bottom .right{
+				width: 300px;
+				height: 300px;
+				background-color: darkgreen;
+				float: right;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="boss">
+			<div class="header">
+				<ul></ul>
+			</div>
+			<div class="bottom">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="routes/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.ajax({
+					url:"http://localhost:3000/item/erji",
+					type:'GET',
+					success:function(e){
+						for(var i in e){
+							$('.header ul').append('<li><a href="zzl2.html?id=zzl">'+e[i].erji+'</a></li>')
+						}
+						for(var i in e){
+							$('.left').append('<p><a href="zzl2.html?id='+e[i].id+'">'+e[i].list+'</a></p>')
+						}
+					}			
+				})
+			})
+		</script>
+		
+	</body>
+</html>
